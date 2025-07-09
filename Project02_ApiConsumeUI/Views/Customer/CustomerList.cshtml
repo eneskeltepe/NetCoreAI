@@ -1,0 +1,60 @@
+﻿@model List<Project02_ApiConsumeUI.Dtos.ResultCustomerDto>
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h2>Müşteri Listesi</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Müşteri İsmi</th>
+                <th>Bakiye</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@customer.CustomerId</td>
+                        <td>@customer.CustomerName @customer.CustomerSurname</td>
+                        <td>@customer.CustomerBalance</td>
+                        <td>
+                            <form asp-action="DeleteCustomer" asp-controller="Customer" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@customer.CustomerId" />
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3"
+                                        onclick="return confirm('Silmek istediğinize emin misiniz?');">
+                                    Sil
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <a href="/Customer/UpdateCustomer/@customer.CustomerId" class="btn btn-outline-success btn-sm rounded-pill px-3">Güncelle</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">Kayıtlı müşteri bulunamadı.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Customer/CreateCustomer/" class="btn btn-outline-primary rounded-pill px-4 py-2">Yeni Müşteri Ekle</a>
+</div>

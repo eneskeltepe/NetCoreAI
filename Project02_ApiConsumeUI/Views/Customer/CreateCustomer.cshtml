@@ -1,0 +1,38 @@
+﻿@model Project02_ApiConsumeUI.Dtos.CreateCustomerDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5" style="max-width: 500px;">
+    <h2 class="mb-4">Yeni Müşteri Ekle</h2>
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+    <form method="post" autocomplete="off">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label asp-for="CustomerName" class="form-label">Müşteri Adı</label>
+            <input type="text" asp-for="CustomerName" class="form-control rounded-pill" required />
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="CustomerSurname" class="form-label">Müşteri Soyadı</label>
+            <input type="text" asp-for="CustomerSurname" class="form-control rounded-pill" required />
+            <span asp-validation-for="CustomerSurname" class="text-danger"></span>
+        </div>
+        <div class="mb-4">
+            <label asp-for="CustomerBalance" class="form-label">Müşteri Bakiye</label>
+            <input type="number" asp-for="CustomerBalance" class="form-control rounded-pill" min="0" step="0.01" required />
+            <span asp-validation-for="CustomerBalance" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-primary rounded-pill px-4 py-2">Müşteri Ekle</button>
+        <a href="/Customer/CustomerList" class="btn btn-outline-secondary rounded-pill px-4 py-2 ms-2">Listeye Dön</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,6 +1,6 @@
 # NetCoreAI Proje Serisi
 
-Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 5 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
+Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 6 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
 
 ---
 
@@ -45,6 +45,17 @@ Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API 
   - API anahtarý appsettings.json dosyasýndan okunur.
   - Kullanýcýdan ses dosyasý adý alýnabilir, renkli ve adým adým bilgilendirme yapýlýr.
   - Baþarýlý ve baþarýsýz durumlar renkli olarak gösterilir, bekleme animasyonu eklenmiþtir.
+
+---
+
+## Project06_ConsoleImageGeneration
+- **Açýklama:**
+  - Konsol uygulamasý olarak geliþtirilmiþtir.
+  - Kullanýcýdan prompt alýp iki farklý model ile görsel üretir:
+    - **Stable Diffusion XL (Hugging Face)**: Sadece Ýngilizce, görseli bilgisayara kaydeder.
+    - **FLUX Text To Image (modelslab.com)**: Türkçe/Ýngilizce, görselin URL'sini döndürür.
+  - API anahtarlarýný `appsettings.json` dosyasýna eklemelisiniz. Örnek için `appsettings.example.json` dosyasýna bakabilirsiniz.
+  - Gerekli NuGet paketleri: `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json`
 
 ---
 

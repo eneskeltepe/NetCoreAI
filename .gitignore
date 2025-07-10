@@ -1,51 +1,16 @@
-# .NET, C#, Visual Studio
+# .NET, Visual Studio ve Rider için .gitignore
 bin/
 obj/
+.vs/
 *.user
 *.suo
-*.userosscache
-*.sln.docstates
-*.vs/
-.vscode/
-TestResults/
-*.log
 *.db
 *.sqlite
-*.pdb
-*.cache
+*.log
 *.DS_Store
-
-# Sadece örnek yapýlandýrma dosyasý hariç, tüm appsettings dosyalarýný gizle
+# appsettings.json ve varyantlarý gizli tutulmalý
 appsettings.json
 appsettings.Development.json
-appsettings.Local.json
 appsettings.Production.json
-appsettings.Staging.json
-appsettings.*.json
+# Sadece örnek dosya hariç
 !appsettings.example.json
-
-# Ortam deðiþkenleri ve gizli anahtarlar
-.env
-.env.*
-*.env
-secrets.json
-*.secrets.json
-
-# Sertifikalar ve anahtarlar
-*.key
-*.pem
-*.pfx
-*.cer
-*.crt
-*.jks
-*.p12
-*.asc
-*.gpg
-
-# Geçici ve önbellek dosyalarý
-*.bak
-*.tmp
-*.ncrunch*
-*.localhistory
-*.idea/
-*.vsconfig

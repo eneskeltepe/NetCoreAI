@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project04_ConsoleAIChat", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project05_ConsoleSpeechToText", "Project05_ConsoleSpeechToText\Project05_ConsoleSpeechToText.csproj", "{ECDE9AFA-FE0C-49CD-8486-BB754BDCBEAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project06_ConsoleImageGeneration", "Project06_ConsoleImageGeneration\Project06_ConsoleImageGeneration.csproj", "{F8FC48E4-8BA3-4976-B718-79BFFA465076}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{ECDE9AFA-FE0C-49CD-8486-BB754BDCBEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECDE9AFA-FE0C-49CD-8486-BB754BDCBEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECDE9AFA-FE0C-49CD-8486-BB754BDCBEAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8FC48E4-8BA3-4976-B718-79BFFA465076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FC48E4-8BA3-4976-B718-79BFFA465076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FC48E4-8BA3-4976-B718-79BFFA465076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FC48E4-8BA3-4976-B718-79BFFA465076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

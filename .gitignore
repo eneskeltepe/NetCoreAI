@@ -8,9 +8,17 @@ obj/
 *.sqlite
 *.log
 *.DS_Store
+
 # appsettings.json ve varyantlarý gizli tutulmalý
 appsettings.json
 appsettings.Development.json
 appsettings.Production.json
 # Sadece örnek dosya hariç
 !appsettings.example.json
+
+# Tesseract OCR proje klasörü sonuç dosyalarý
+Project07_TesseractOcrConsole/Sonuclar/
+
+# Image Generation proje klasörü çýktý dosyalarý
+Project06_ConsoleImageGeneration/output_*.png
+Project06_ConsoleImageGeneration/output_*.jpg

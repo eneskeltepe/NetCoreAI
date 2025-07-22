@@ -65,6 +65,7 @@ class Program
         var requestData = new
         {
             audio_url = uploadUrl,
+            language_code = "tr", // Türkçe dil kodu
             speech_model = "universal"
         };
         var jsonContent = new StringContent(

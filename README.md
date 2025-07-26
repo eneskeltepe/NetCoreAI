@@ -1,6 +1,6 @@
 # NetCoreAI Proje Serisi
 
-Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 7 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
+Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 8 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
 
 ---
 
@@ -88,6 +88,20 @@ Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API 
   - `Tesseract` (v5.2.0)
 - **Örnek Görüntü Dosyalarý:**
   - `Images/1.png`, `Images/2.jpg`, `Images/3.jpeg` dosyalarý test için proje ile birlikte gelir
+
+---
+
+## Project08_GoogleVisionOcrConsole
+- **Açýklama:**
+  - Konsol uygulamasý olarak geliþtirilmiþtir.
+  - Google Cloud Vision API ile resimlerden metin çýkarma (OCR) iþlemi yapar.
+  - Images klasöründeki resimleri otomatik listeler ve seçim yapmayý kolaylaþtýrýr.
+  - OCR sonuçlarýný dosyaya kaydetme özelliði bulunur.
+  - Google Cloud Service Account JSON dosyasý gereklidir.
+- **Gerekli NuGet Paketleri:**
+  - `Google.Cloud.Vision.V1` (v3.14.0)
+- **Örnek Görüntü Dosyalarý:**
+  - `Images/` klasöründeki örnek resim dosyalarý test için proje ile birlikte gelir
 
 ---
 

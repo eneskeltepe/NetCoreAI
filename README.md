@@ -1,6 +1,6 @@
 # NetCoreAI Proje Serisi
 
-Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 9 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
+Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 10 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
 
 ---
 
@@ -113,6 +113,20 @@ Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API 
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.Extensions.Configuration.Json` (v8.0.1)
   - `System.Text.Json` (v8.0.6)
+
+---
+
+## Project10_TextToSpeechConsole
+- **Açýklama:**
+  - Konsol uygulamasý olarak geliþtirilmiþtir.
+  - System.Speech.Synthesis kullanarak metni sese çevirir (Text-to-Speech).
+  - Geliþmiþ kullanýcý arayüzü ile ses seçimi, hýz ve volüm ayarlarý bulunur.
+  - Varsayýlan ayarlarla hýzlý baþlangýç, isteðe baðlý detaylý ayar menüsü sunar.
+  - Mevcut sistemdeki tüm TTS seslerini listeler ve seçim yapma imkaný verir.
+  - Türkçe ses desteði (Windows'ta Türkçe TTS sesi varsa otomatik algýlar).
+  - Sürekli metin girme döngüsü ile çoklu kullaným olanaðý saðlar.
+- **Gerekli NuGet Paketleri:**
+  - `System.Speech` (Windows built-in)
 
 ---
 

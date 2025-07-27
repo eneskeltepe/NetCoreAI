@@ -19,6 +19,7 @@ appsettings.Production.json
 # Google Cloud Service Account JSON dosyalarý (GÜVENLÝK AÇIÐI!)
 *-k1-*.json
 famous-modem-465613-k1-bf89e7e629b6.json
+famous-modem-465613-k1-e34190f6e788.json
 
 # Tesseract OCR proje klasörü sonuç dosyalarý
 Project07_TesseractOcrConsole/Sonuclar/

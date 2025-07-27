@@ -1,11 +1,11 @@
-# NetCoreAI Proje Serisi
+# .NET Core AI Projeleri
 
-Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 10 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
+Bu repo, çeþitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermektedir. Her proje, farklý bir AI hizmeti veya teknolojisi ile entegrasyon örneði sunmaktadýr.
 
----
+## Projeler
 
 ## Project01_ApiDemo
-- **Açýklama:**
+- **Açýklama:** 
   - Basit bir ASP.NET Core Web API projesidir.
   - Müþteri (Customer) CRUD iþlemleri (ekle, listele, güncelle, sil) için Entity Framework Core ile SQLite veritabaný kullanýr.
   - Temel RESTful servis mantýðý ve controller yapýsý örneklenmiþtir.
@@ -127,6 +127,24 @@ Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API 
   - Sürekli metin girme döngüsü ile çoklu kullaným olanaðý saðlar.
 - **Gerekli NuGet Paketleri:**
   - `System.Speech` (Windows built-in)
+
+---
+
+## Project11_ConsoleTextToSpeechWithGoogleCloudAPI
+- **Açýklama:**
+  - Konsol uygulamasý olarak geliþtirilmiþtir.
+  - Google Cloud Text-to-Speech API ile profesyonel metinden sese çevirme iþlemleri yapar.
+  - 7 farklý dil desteði (Türkçe, Ýngilizce (ABD/Ýngiltere), Almanca, Fransýzca, Ýspanyolca, Ýtalyanca) bulunur.
+  - **Özellikler:**
+    - **Hýzlý Seslendirme**: Varsayýlan Türkçe kadýn sesi ile basit TTS
+    - **Geliþmiþ Seslendirme**: Dil, ses, hýz, ton ve format seçimi ile özelleþtirilebilir TTS
+    - **Batch Ýþleme**: Çoklu metni ayný anda iþleyerek ayrý dosyalar oluþturma
+    - **Mevcut Sesler**: Google Cloud'daki tüm mevcut sesleri listeleme
+    - **Dosyadan Okuma**: .txt dosyalarýndan metin okuyarak seslendirme
+  - Konuþma hýzý (0.5x - 1.5x), ses tonu (-5.0 ile +5.0 arasý) ve format (MP3/WAV) seçenekleri mevcuttur.
+  - Google Cloud Service Account JSON dosyasý gereklidir (`google-cloud-credentials-example.json` dosyasýna bakýn).
+- **Gerekli NuGet Paketleri:**
+  - `Google.Cloud.TextToSpeech.V1` (v3.12.0)
 
 ---
 

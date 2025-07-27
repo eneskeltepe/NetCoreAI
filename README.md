@@ -1,6 +1,6 @@
 # NetCoreAI Proje Serisi
 
-Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 8 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
+Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API ve yapay zeka entegrasyonlarýný içeren 9 farklý projeyi barýndýrmaktadýr. Her bir proje, farklý bir teknolojik konsepti ve uygulama örneðini göstermektedir.
 
 ---
 
@@ -86,8 +86,6 @@ Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API 
   - OCR sonuçlarýný dosyaya kaydetme özelliði ve konsol içi kurulum rehberi bulunur.
 - **Gerekli NuGet Paketleri:**
   - `Tesseract` (v5.2.0)
-- **Örnek Görüntü Dosyalarý:**
-  - `Images/1.png`, `Images/2.jpg`, `Images/3.jpeg` dosyalarý test için proje ile birlikte gelir
 
 ---
 
@@ -100,8 +98,21 @@ Bu depo, .NET 8 ve C# 12 ile geliþtirilmiþ, temelden ileri seviyeye çeþitli API 
   - Google Cloud Service Account JSON dosyasý gereklidir.
 - **Gerekli NuGet Paketleri:**
   - `Google.Cloud.Vision.V1` (v3.14.0)
-- **Örnek Görüntü Dosyalarý:**
-  - `Images/` klasöründeki örnek resim dosyalarý test için proje ile birlikte gelir
+
+---
+
+## Project09_TranslatorAIConsole
+- **Açýklama:**
+  - Konsol uygulamasý olarak geliþtirilmiþtir.
+  - Google AI Studio (Gemini) API ile çok dilli çeviri iþlemleri yapar.
+  - 7 farklý dil desteði (Türkçe, Ýngilizce, Almanca, Fransýzca, Ýspanyolca, Ýtalyanca, Portekizce) bulunur.
+  - Hýzlý çeviri özelliði ile sadece Türkçe'den Ýngilizce'ye çeviri yapar.
+  - Özel dil seçimi ile kullanýcý kaynak ve hedef dili manuel olarak belirleyebilir.
+  - Sürekli çeviri döngüsü ile 'q' yazýlana kadar çeviri yapmaya devam eder.
+  - API anahtarý güvenli þekilde appsettings.json dosyasýndan okunur.
+- **Gerekli NuGet Paketleri:**
+  - `Microsoft.Extensions.Configuration.Json` (v8.0.1)
+  - `System.Text.Json` (v8.0.6)
 
 ---
 

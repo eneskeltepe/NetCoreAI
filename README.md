@@ -148,4 +148,19 @@ Bu repo, çeþitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermek
 
 ---
 
+## Project12_SentimentAIAppConsole
+- **Açýklama:**
+  - Konsol uygulamasý olarak geliþtirilmiþtir.
+  - Google AI Studio (Gemini) API ile metin sentiment analizi yapar.
+  - Metinleri "Pozitif", "Negatif" veya "Nötr" kategorilerine ayýrýr.
+  - Renkli konsol çýktýlarý ile sentiment sonuçlarýný gösterir (Pozitif: Yeþil, Negatif: Kýrmýzý, Nötr: Sarý).
+  - Döngülü uygulama ile çýkýþ yapýlana kadar sürekli metin analiz edebilme özelliði bulunur.
+  - Türkçe metinleri doðru þekilde analiz eder ve akýllý normalizasyon yapar.
+  - API anahtarý güvenli þekilde appsettings.json dosyasýndan okunur.
+- **Gerekli NuGet Paketleri:**
+  - `Microsoft.Extensions.Configuration` (v8.0.0)
+  - `Microsoft.Extensions.Configuration.Json` (v8.0.0)
+
+---
+
 Her proje kendi klasöründe, ilgili kod ve yapýlandýrma dosyalarýný içermektedir. Yeni projeler eklendikçe bu README dosyasý güncellenecektir.

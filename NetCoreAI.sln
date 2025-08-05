@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project10_TextToSpeechConso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project11_ConsoleTextToSpeechWithGoogleCloudAPI", "Project11_ConsoleTextToSpeechWithGoogleCloudAPI\Project11_ConsoleTextToSpeechWithGoogleCloudAPI.csproj", "{2BDBC1D9-4E3F-4443-94BF-E7A2EB8417D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project12_SentimentAIAppConsole", "Project12_SentimentAIAppConsole\Project12_SentimentAIAppConsole.csproj", "{26F3EB3E-475D-4B8B-B639-E82DEE4FC199}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{2BDBC1D9-4E3F-4443-94BF-E7A2EB8417D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BDBC1D9-4E3F-4443-94BF-E7A2EB8417D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BDBC1D9-4E3F-4443-94BF-E7A2EB8417D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F3EB3E-475D-4B8B-B639-E82DEE4FC199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F3EB3E-475D-4B8B-B639-E82DEE4FC199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F3EB3E-475D-4B8B-B639-E82DEE4FC199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F3EB3E-475D-4B8B-B639-E82DEE4FC199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

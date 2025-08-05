@@ -163,4 +163,20 @@ Bu repo, çeþitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermek
 
 ---
 
+## Project13_SentimentWithDegreeAIAppConsole
+- **Açýklama:**
+  - Konsol uygulamasý olarak geliþtirilmiþtir.
+  - Google AI Studio (Gemini) API ile geliþmiþ metin sentiment analizi yapar.
+  - 6 farklý duygu kategorisi için detaylý analiz: Mutluluk, Üzüntü, Öfke, Korku, Þaþýrma, Tarafsýz.
+  - Her duygu için 0-100% arasý skorlar ve görsel progress bar gösterir.
+  - Renkli konsol çýktýlarý ile her duygu için özel renk kodlamasý (Mutluluk: Yeþil, Üzüntü: Mavi, Öfke: Kýrmýzý vb.).
+  - JSON formatýnda yapýlandýrýlmýþ sonuçlar döndürür.
+  - Döngülü uygulama ile çýkýþ yapýlana kadar sürekli metin analiz edebilme özelliði bulunur.
+  - API anahtarý güvenli þekilde appsettings.json dosyasýndan okunur.
+- **Gerekli NuGet Paketleri:**
+  - `Microsoft.Extensions.Configuration` (v8.0.0)
+  - `Microsoft.Extensions.Configuration.Json` (v8.0.0)
+
+---
+
 Her proje kendi klasöründe, ilgili kod ve yapýlandýrma dosyalarýný içermektedir. Yeni projeler eklendikçe bu README dosyasý güncellenecektir.

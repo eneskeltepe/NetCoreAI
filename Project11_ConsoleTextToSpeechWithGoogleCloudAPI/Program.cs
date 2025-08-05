@@ -5,7 +5,7 @@ class Program
 {
     // Google Cloud Text-to-Speech client'ını tutar (static olarak tanımlandı çünkü tüm metotlarda kullanılacak)
     private static TextToSpeechClient? client;
-    
+
     // Google Cloud kimlik bilgileri dosyasının yolu
     private static readonly string credentialsPath = "famous-modem-465613-k1-e34190f6e788.json";
 
@@ -13,10 +13,10 @@ class Program
     {
         // Konsol penceresinin başlığını ayarla
         Console.Title = "Google Cloud Text-to-Speech Uygulaması";
-        
+
         // Türkçe karakterlerin doğru görünmesi için UTF-8 encoding ayarla
         Console.OutputEncoding = System.Text.Encoding.UTF8;
-        
+
         try
         {
             // Google Cloud kimlik bilgilerini ayarla ve kontrol et
@@ -108,7 +108,7 @@ class Program
         // Google Cloud kimlik bilgilerini sistem ortam değişkenine ata
         // Bu, Google Cloud SDK'nın kimlik doğrulaması için gereklidir
         Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credentialsPath);
-        
+
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Google Cloud credentials başarıyla ayarlandı!");
         Console.ResetColor();
@@ -193,7 +193,7 @@ class Program
 
             // Metin girişini hazırla
             var input = new SynthesisInput { Text = text };
-            
+
             // Ses parametrelerini ayarla (Türkçe kadın sesi varsayılan)
             var voice = new VoiceSelectionParams
             {
@@ -201,7 +201,7 @@ class Program
                 Name = "tr-TR-Standard-A",
                 SsmlGender = SsmlVoiceGender.Female
             };
-            
+
             // Ses dosyası formatını ayarla (MP3 formatı)
             var config = new AudioConfig { AudioEncoding = AudioEncoding.Mp3 };
 
@@ -210,7 +210,7 @@ class Program
 
             // Dosya adını tarih-saat ile benzersiz yap
             string fileName = $"output_{DateTime.Now:yyyyMMdd_HHmmss}.mp3";
-            
+
             // Ses dosyasını diske kaydet
             await File.WriteAllBytesAsync(fileName, response.AudioContent.ToByteArray());
 
@@ -273,10 +273,10 @@ class Program
 
             // Metin girişini hazırla
             var input = new SynthesisInput { Text = text };
-            
+
             // Ses konfigürasyonunu kullanıcının seçimlerine göre ayarla
-            var config = new AudioConfig 
-            { 
+            var config = new AudioConfig
+            {
                 AudioEncoding = audioFormat,
                 SpeakingRate = speakingRate,  // Konuşma hızı (0.25 ile 4.0 arası)
                 Pitch = pitch                 // Ses tonu (-20.0 ile +20.0 arası)
@@ -288,7 +288,7 @@ class Program
             // Dosya uzantısını formata göre belirle
             string extension = audioFormat == AudioEncoding.Mp3 ? "mp3" : "wav";
             string fileName = $"advanced_output_{DateTime.Now:yyyyMMdd_HHmmss}.{extension}";
-            
+
             // Ses dosyasını kaydet
             await File.WriteAllBytesAsync(fileName, response.AudioContent.ToByteArray());
 
@@ -331,7 +331,7 @@ class Program
 
         // Metinleri saklamak için liste oluştur
         var texts = new List<string>();
-        
+
         Console.WriteLine("Metinleri girin (boş satır için Enter'a basın, bitirmek için 'TAMAM' yazın):");
         Console.WriteLine();
 
@@ -341,18 +341,18 @@ class Program
         {
             Console.Write($"{counter}. Metin: ");
             string input = Console.ReadLine();
-            
+
             // Boş satır kontrolü
             if (string.IsNullOrWhiteSpace(input))
             {
                 Console.WriteLine("Boş satır atlandı.");
                 continue;
             }
-            
+
             // Bitirme komutu kontrolü
             if (input.ToUpper() == "TAMAM")
                 break;
-                
+
             texts.Add(input);
             counter++;
         }
@@ -385,7 +385,7 @@ class Program
             for (int i = 0; i < texts.Count; i++)
             {
                 Console.WriteLine($"İşleniyor: {i + 1}/{texts.Count}");
-                
+
                 // Metin girişini hazırla
                 var input = new SynthesisInput { Text = texts[i] };
                 var config = new AudioConfig { AudioEncoding = AudioEncoding.Mp3 };
@@ -433,7 +433,7 @@ class Program
         try
         {
             Console.WriteLine("Mevcut sesler yükleniyor...");
-            
+
             // Google Cloud'dan tüm mevcut sesleri al
             var voices = await client.ListVoicesAsync(new ListVoicesRequest());
 
@@ -448,7 +448,7 @@ class Program
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"\n[Dil] {GetLanguageName(group.Key)} ({group.Key})");
                 Console.ResetColor();
-                
+
                 // Dil grubundaki her sesi listele
                 foreach (var voice in group.OrderBy(v => v.Name))
                 {
@@ -459,7 +459,7 @@ class Program
                         SsmlVoiceGender.Female => "Kadın",
                         _ => "Belirsiz"
                     };
-                    
+
                     Console.WriteLine($"  * {voice.Name} ({gender})");
                 }
             }
@@ -501,7 +501,7 @@ class Program
         {
             // Dosyayı UTF-8 encoding ile oku (Türkçe karakter desteği için)
             string text = await File.ReadAllTextAsync(filePath);
-            
+
             // Dosya boş mu kontrol et
             if (string.IsNullOrWhiteSpace(text))
             {
@@ -572,7 +572,7 @@ class Program
         Console.WriteLine("5. Fransızca (fr-FR)");
         Console.WriteLine("6. İspanyolca (es-ES)");
         Console.WriteLine("7. İtalyanca (it-IT)");
-        
+
         Console.Write("Seçiminiz (1-7): ");
         string choice = Console.ReadLine();
 
@@ -665,7 +665,7 @@ class Program
         Console.WriteLine("3. Normal (1.0x)");
         Console.WriteLine("4. Hızlı (1.25x)");
         Console.WriteLine("5. Çok Hızlı (1.5x)");
-        
+
         Console.Write("Seçiminiz (1-5): ");
         string choice = Console.ReadLine();
 
@@ -692,7 +692,7 @@ class Program
         Console.WriteLine("3. Normal (0.0)");
         Console.WriteLine("4. Yüksek (2.0)");
         Console.WriteLine("5. Çok Yüksek (5.0)");
-        
+
         Console.Write("Seçiminiz (1-5): ");
         string choice = Console.ReadLine();
 
@@ -716,7 +716,7 @@ class Program
         Console.WriteLine("\nSes formatı seçin:");
         Console.WriteLine("1. MP3 (Önerilen)");
         Console.WriteLine("2. WAV (Yüksek kalite)");
-        
+
         Console.Write("Seçiminiz (1-2): ");
         string choice = Console.ReadLine();
 

@@ -1,14 +1,14 @@
-# .NET Core AI Projeleri
+ï»¿# .NET Core AI Projeleri
 
-Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermektedir. Her proje, farklı bir AI hizmeti veya teknolojisi ile entegrasyon örneği sunmaktadır.
+Bu repo, Ã§eÅŸitli .NET Core teknolojileri ile AI entegrasyonu Ã¶rneklerini iÃ§ermektedir. Her proje, farklÄ± bir AI hizmeti veya teknolojisi ile entegrasyon Ã¶rneÄŸi sunmaktadÄ±r.
 
 ## Projeler
 
 ## Project01_ApiDemo
-- **Açıklama:** 
+- **AÃ§Ä±klama:** 
   - Basit bir ASP.NET Core Web API projesidir.
-  - Müşteri (Customer) CRUD işlemleri (ekle, listele, güncelle, sil) için Entity Framework Core ile SQLite veritabanı kullanır.
-  - Temel RESTful servis mantığı ve controller yapısı örneklenmiştir.
+  - MÃ¼ÅŸteri (Customer) CRUD iÅŸlemleri (ekle, listele, gÃ¼ncelle, sil) iÃ§in Entity Framework Core ile SQLite veritabanÄ± kullanÄ±r.
+  - Temel RESTful servis mantÄ±ÄŸÄ± ve controller yapÄ±sÄ± Ã¶rneklenmiÅŸtir.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.EntityFrameworkCore` (v8.0.17)
   - `Microsoft.EntityFrameworkCore.Design` (v8.0.17)
@@ -19,10 +19,10 @@ Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermek
 ---
 
 ## Project02_ApiConsumeUI
-- **Açıklama:**
-  - ASP.NET Core Razor Pages tabanlı bir web arayüzüdür.
-  - Project01'deki API'yi tüketerek müşteri ekleme, listeleme, güncelleme ve silme işlemlerini kullanıcı dostu bir arayüzle sunar.
-  - HttpClient ve ViewModel/Dtos kullanımı örneklenmiştir.
+- **AÃ§Ä±klama:**
+  - ASP.NET Core Razor Pages tabanlÄ± bir web arayÃ¼zÃ¼dÃ¼r.
+  - Project01'deki API'yi tÃ¼keterek mÃ¼ÅŸteri ekleme, listeleme, gÃ¼ncelleme ve silme iÅŸlemlerini kullanÄ±cÄ± dostu bir arayÃ¼zle sunar.
+  - HttpClient ve ViewModel/Dtos kullanÄ±mÄ± Ã¶rneklenmiÅŸtir.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.VisualStudio.Web.CodeGeneration.Design` (v8.0.7)
   - `Newtonsoft.Json` (v13.0.3)
@@ -30,48 +30,48 @@ Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermek
 ---
 
 ## Project03_RapidApi
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - RapidAPI üzerinden IMDB Top 100 diziler API'sine bağlanır ve dizi listesini ekrana yazdırır.
-  - API anahtarı ile dış servis tüketimi ve JSON verisinin modele dönüştürülmesi örneklenmiştir.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - RapidAPI Ã¼zerinden IMDB Top 100 diziler API'sine baÄŸlanÄ±r ve dizi listesini ekrana yazdÄ±rÄ±r.
+  - API anahtarÄ± ile dÄ±ÅŸ servis tÃ¼ketimi ve JSON verisinin modele dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lmesi Ã¶rneklenmiÅŸtir.
 - **Gerekli NuGet Paketleri:**
   - `Newtonsoft.Json` (v13.0.3)
 
 ---
 
 ## Project04_ConsoleAIChat
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - Google Gemini API ile ücretsiz olarak sohbet (chatbot) deneyimi sunar.
-  - API anahtarı güvenli şekilde appsettings.json dosyasından okunur.
-  - Kullanıcı ve yapay zeka mesajları renkli ve geçmişli olarak gösterilir.
-  - Microsoft.Extensions.Configuration.Json paketi ile yapılandırma yönetimi örneklenmiştir.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - Google Gemini API ile Ã¼cretsiz olarak sohbet (chatbot) deneyimi sunar.
+  - API anahtarÄ± gÃ¼venli ÅŸekilde appsettings.json dosyasÄ±ndan okunur.
+  - KullanÄ±cÄ± ve yapay zeka mesajlarÄ± renkli ve geÃ§miÅŸli olarak gÃ¶sterilir.
+  - Microsoft.Extensions.Configuration.Json paketi ile yapÄ±landÄ±rma yÃ¶netimi Ã¶rneklenmiÅŸtir.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.Extensions.Configuration.Json` (v8.0.1)
 
 ---
 
 ## Project05_ConsoleSpeechToText
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - AssemblyAI API ile ses dosyasını metne çevirir (Speech-to-Text).
-  - API anahtarı appsettings.json dosyasından okunur.
-  - Kullanıcıdan ses dosyası adı alınabilir, renkli ve adım adım bilgilendirme yapılır.
-  - Başarılı ve başarısız durumlar renkli olarak gösterilir, bekleme animasyonu eklenmiştir.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - AssemblyAI API ile ses dosyasÄ±nÄ± metne Ã§evirir (Speech-to-Text).
+  - API anahtarÄ± appsettings.json dosyasÄ±ndan okunur.
+  - KullanÄ±cÄ±dan ses dosyasÄ± adÄ± alÄ±nabilir, renkli ve adÄ±m adÄ±m bilgilendirme yapÄ±lÄ±r.
+  - BaÅŸarÄ±lÄ± ve baÅŸarÄ±sÄ±z durumlar renkli olarak gÃ¶sterilir, bekleme animasyonu eklenmiÅŸtir.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.Extensions.Configuration.Json` (v8.0.1)
-- **Örnek Ses Dosyaları:**
-  - `audio1.mp3` ve `audio2.mp3` dosyaları test için proje ile birlikte gelir
+- **Ã–rnek Ses DosyalarÄ±:**
+  - `audio1.mp3` ve `audio2.mp3` dosyalarÄ± test iÃ§in proje ile birlikte gelir
 
 ---
 
 ## Project06_ConsoleImageGeneration
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - Kullanıcıdan prompt alıp iki farklı model ile görsel üretir:
-    - **Stable Diffusion XL (Hugging Face)**: Sadece İngilizce, görseli bilgisayara kaydeder.
-    - **FLUX Text To Image (modelslab.com)**: Türkçe/İngilizce, görselin URL'sini döndürür.
-  - API anahtarlarını `appsettings.json` dosyasına eklemelisiniz. Örnek için `appsettings.example.json` dosyasına bakabilirsiniz.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - KullanÄ±cÄ±dan prompt alÄ±p iki farklÄ± model ile gÃ¶rsel Ã¼retir:
+    - **Stable Diffusion XL (Hugging Face)**: Sadece Ä°ngilizce, gÃ¶rseli bilgisayara kaydeder.
+    - **FLUX Text To Image (modelslab.com)**: TÃ¼rkÃ§e/Ä°ngilizce, gÃ¶rselin URL'sini dÃ¶ndÃ¼rÃ¼r.
+  - API anahtarlarÄ±nÄ± `appsettings.json` dosyasÄ±na eklemelisiniz. Ã–rnek iÃ§in `appsettings.example.json` dosyasÄ±na bakabilirsiniz.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.Extensions.Configuration` (v9.0.7)
   - `Microsoft.Extensions.Configuration.Json` (v8.0.1)
@@ -79,37 +79,37 @@ Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermek
 ---
 
 ## Project07_TesseractOcrConsole
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - Tesseract OCR ile görüntü dosyalarındaki metinleri okur ve analiz eder.
-  - Türkçe ve İngilizce dil desteği, akıllı dosya seçimi ve detaylı analiz raporu sunar.
-  - OCR sonuçlarını dosyaya kaydetme özelliği ve konsol içi kurulum rehberi bulunur.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - Tesseract OCR ile gÃ¶rÃ¼ntÃ¼ dosyalarÄ±ndaki metinleri okur ve analiz eder.
+  - TÃ¼rkÃ§e ve Ä°ngilizce dil desteÄŸi, akÄ±llÄ± dosya seÃ§imi ve detaylÄ± analiz raporu sunar.
+  - OCR sonuÃ§larÄ±nÄ± dosyaya kaydetme Ã¶zelliÄŸi ve konsol iÃ§i kurulum rehberi bulunur.
 - **Gerekli NuGet Paketleri:**
   - `Tesseract` (v5.2.0)
 
 ---
 
 ## Project08_GoogleVisionOcrConsole
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - Google Cloud Vision API ile resimlerden metin çıkarma (OCR) işlemi yapar.
-  - Images klasöründeki resimleri otomatik listeler ve seçim yapmayı kolaylaştırır.
-  - OCR sonuçlarını dosyaya kaydetme özelliği bulunur.
-  - Google Cloud Service Account JSON dosyası gereklidir.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - Google Cloud Vision API ile resimlerden metin Ã§Ä±karma (OCR) iÅŸlemi yapar.
+  - Images klasÃ¶rÃ¼ndeki resimleri otomatik listeler ve seÃ§im yapmayÄ± kolaylaÅŸtÄ±rÄ±r.
+  - OCR sonuÃ§larÄ±nÄ± dosyaya kaydetme Ã¶zelliÄŸi bulunur.
+  - Google Cloud Service Account JSON dosyasÄ± gereklidir.
 - **Gerekli NuGet Paketleri:**
   - `Google.Cloud.Vision.V1` (v3.14.0)
 
 ---
 
 ## Project09_TranslatorAIConsole
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - Google AI Studio (Gemini) API ile çok dilli çeviri işlemleri yapar.
-  - 7 farklı dil desteği (Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, İtalyanca, Portekizce) bulunur.
-  - Hızlı çeviri özelliği ile sadece Türkçe'den İngilizce'ye çeviri yapar.
-  - Özel dil seçimi ile kullanıcı kaynak ve hedef dili manuel olarak belirleyebilir.
-  - Sürekli çeviri döngüsü ile 'q' yazılana kadar çeviri yapmaya devam eder.
-  - API anahtarı güvenli şekilde appsettings.json dosyasından okunur.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - Google AI Studio (Gemini) API ile Ã§ok dilli Ã§eviri iÅŸlemleri yapar.
+  - 7 farklÄ± dil desteÄŸi (TÃ¼rkÃ§e, Ä°ngilizce, Almanca, FransÄ±zca, Ä°spanyolca, Ä°talyanca, Portekizce) bulunur.
+  - HÄ±zlÄ± Ã§eviri Ã¶zelliÄŸi ile sadece TÃ¼rkÃ§e'den Ä°ngilizce'ye Ã§eviri yapar.
+  - Ã–zel dil seÃ§imi ile kullanÄ±cÄ± kaynak ve hedef dili manuel olarak belirleyebilir.
+  - SÃ¼rekli Ã§eviri dÃ¶ngÃ¼sÃ¼ ile 'q' yazÄ±lana kadar Ã§eviri yapmaya devam eder.
+  - API anahtarÄ± gÃ¼venli ÅŸekilde appsettings.json dosyasÄ±ndan okunur.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.Extensions.Configuration.Json` (v8.0.1)
   - `System.Text.Json` (v8.0.6)
@@ -117,46 +117,46 @@ Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermek
 ---
 
 ## Project10_TextToSpeechConsole
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - System.Speech.Synthesis kullanarak metni sese çevirir (Text-to-Speech).
-  - Gelişmiş kullanıcı arayüzü ile ses seçimi, hız ve volüm ayarları bulunur.
-  - Varsayılan ayarlarla hızlı başlangıç, isteğe bağlı detaylı ayar menüsü sunar.
-  - Mevcut sistemdeki tüm TTS seslerini listeler ve seçim yapma imkanı verir.
-  - Türkçe ses desteği (Windows'ta Türkçe TTS sesi varsa otomatik algılar).
-  - Sürekli metin girme döngüsü ile çoklu kullanım olanağı sağlar.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - System.Speech.Synthesis kullanarak metni sese Ã§evirir (Text-to-Speech).
+  - GeliÅŸmiÅŸ kullanÄ±cÄ± arayÃ¼zÃ¼ ile ses seÃ§imi, hÄ±z ve volÃ¼m ayarlarÄ± bulunur.
+  - VarsayÄ±lan ayarlarla hÄ±zlÄ± baÅŸlangÄ±Ã§, isteÄŸe baÄŸlÄ± detaylÄ± ayar menÃ¼sÃ¼ sunar.
+  - Mevcut sistemdeki tÃ¼m TTS seslerini listeler ve seÃ§im yapma imkanÄ± verir.
+  - TÃ¼rkÃ§e ses desteÄŸi (Windows'ta TÃ¼rkÃ§e TTS sesi varsa otomatik algÄ±lar).
+  - SÃ¼rekli metin girme dÃ¶ngÃ¼sÃ¼ ile Ã§oklu kullanÄ±m olanaÄŸÄ± saÄŸlar.
 - **Gerekli NuGet Paketleri:**
   - `System.Speech` (Windows built-in)
 
 ---
 
 ## Project11_ConsoleTextToSpeechWithGoogleCloudAPI
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - Google Cloud Text-to-Speech API ile profesyonel metinden sese çevirme işlemleri yapar.
-  - 7 farklı dil desteği (Türkçe, İngilizce (ABD/İngiltere), Almanca, Fransızca, İspanyolca, İtalyanca) bulunur.
-  - **Özellikler:**
-    - **Hızlı Seslendirme**: Varsayılan Türkçe kadın sesi ile basit TTS
-    - **Gelişmiş Seslendirme**: Dil, ses, hız, ton ve format seçimi ile özelleştirilebilir TTS
-    - **Batch İşleme**: Çoklu metni aynı anda işleyerek ayrı dosyalar oluşturma
-    - **Mevcut Sesler**: Google Cloud'daki tüm mevcut sesleri listeleme
-    - **Dosyadan Okuma**: .txt dosyalarından metin okuyarak seslendirme
-  - Konuşma hızı (0.5x - 1.5x), ses tonu (-5.0 ile +5.0 arası) ve format (MP3/WAV) seçenekleri mevcuttur.
-  - Google Cloud Service Account JSON dosyası gereklidir (`google-cloud-credentials-example.json` dosyasına bakın).
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - Google Cloud Text-to-Speech API ile profesyonel metinden sese Ã§evirme iÅŸlemleri yapar.
+  - 7 farklÄ± dil desteÄŸi (TÃ¼rkÃ§e, Ä°ngilizce (ABD/Ä°ngiltere), Almanca, FransÄ±zca, Ä°spanyolca, Ä°talyanca) bulunur.
+  - **Ã–zellikler:**
+    - **HÄ±zlÄ± Seslendirme**: VarsayÄ±lan TÃ¼rkÃ§e kadÄ±n sesi ile basit TTS
+    - **GeliÅŸmiÅŸ Seslendirme**: Dil, ses, hÄ±z, ton ve format seÃ§imi ile Ã¶zelleÅŸtirilebilir TTS
+    - **Batch Ä°ÅŸleme**: Ã‡oklu metni aynÄ± anda iÅŸleyerek ayrÄ± dosyalar oluÅŸturma
+    - **Mevcut Sesler**: Google Cloud'daki tÃ¼m mevcut sesleri listeleme
+    - **Dosyadan Okuma**: .txt dosyalarÄ±ndan metin okuyarak seslendirme
+  - KonuÅŸma hÄ±zÄ± (0.5x - 1.5x), ses tonu (-5.0 ile +5.0 arasÄ±) ve format (MP3/WAV) seÃ§enekleri mevcuttur.
+  - Google Cloud Service Account JSON dosyasÄ± gereklidir (`google-cloud-credentials-example.json` dosyasÄ±na bakÄ±n).
 - **Gerekli NuGet Paketleri:**
   - `Google.Cloud.TextToSpeech.V1` (v3.12.0)
 
 ---
 
 ## Project12_SentimentAIAppConsole
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
   - Google AI Studio (Gemini) API ile metin sentiment analizi yapar.
-  - Metinleri "Pozitif", "Negatif" veya "Nötr" kategorilerine ayırır.
-  - Renkli konsol çıktıları ile sentiment sonuçlarını gösterir (Pozitif: Yeşil, Negatif: Kırmızı, Nötr: Sarı).
-  - Döngülü uygulama ile çıkış yapılana kadar sürekli metin analiz edebilme özelliği bulunur.
-  - Türkçe metinleri doğru şekilde analiz eder ve akıllı normalizasyon yapar.
-  - API anahtarı güvenli şekilde appsettings.json dosyasından okunur.
+  - Metinleri "Pozitif", "Negatif" veya "NÃ¶tr" kategorilerine ayÄ±rÄ±r.
+  - Renkli konsol Ã§Ä±ktÄ±larÄ± ile sentiment sonuÃ§larÄ±nÄ± gÃ¶sterir (Pozitif: YeÅŸil, Negatif: KÄ±rmÄ±zÄ±, NÃ¶tr: SarÄ±).
+  - DÃ¶ngÃ¼lÃ¼ uygulama ile Ã§Ä±kÄ±ÅŸ yapÄ±lana kadar sÃ¼rekli metin analiz edebilme Ã¶zelliÄŸi bulunur.
+  - TÃ¼rkÃ§e metinleri doÄŸru ÅŸekilde analiz eder ve akÄ±llÄ± normalizasyon yapar.
+  - API anahtarÄ± gÃ¼venli ÅŸekilde appsettings.json dosyasÄ±ndan okunur.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.Extensions.Configuration` (v8.0.0)
   - `Microsoft.Extensions.Configuration.Json` (v8.0.0)
@@ -164,19 +164,42 @@ Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermek
 ---
 
 ## Project13_SentimentWithDegreeAIAppConsole
-- **Açıklama:**
-  - Konsol uygulaması olarak geliştirilmiştir.
-  - Google AI Studio (Gemini) API ile gelişmiş metin sentiment analizi yapar.
-  - 6 farklı duygu kategorisi için detaylı analiz: Mutluluk, Üzüntü, Öfke, Korku, Şaşırma, Tarafsız.
-  - Her duygu için 0-100% arası skorlar ve görsel progress bar gösterir.
-  - Renkli konsol çıktıları ile her duygu için özel renk kodlaması (Mutluluk: Yeşil, Üzüntü: Mavi, Öfke: Kırmızı vb.).
-  - JSON formatında yapılandırılmış sonuçlar döndürür.
-  - Döngülü uygulama ile çıkış yapılana kadar sürekli metin analiz edebilme özelliği bulunur.
-  - API anahtarı güvenli şekilde appsettings.json dosyasından okunur.
+- **AÃ§Ä±klama:**
+  - Konsol uygulamasÄ± olarak geliÅŸtirilmiÅŸtir.
+  - Google AI Studio (Gemini) API ile geliÅŸmiÅŸ metin sentiment analizi yapar.
+  - 6 farklÄ± duygu kategorisi iÃ§in detaylÄ± analiz: Mutluluk, ÃœzÃ¼ntÃ¼, Ã–fke, Korku, ÅaÅŸÄ±rma, TarafsÄ±z.
+  - Her duygu iÃ§in 0-100% arasÄ± skorlar ve gÃ¶rsel progress bar gÃ¶sterir.
+  - Renkli konsol Ã§Ä±ktÄ±larÄ± ile her duygu iÃ§in Ã¶zel renk kodlamasÄ± (Mutluluk: YeÅŸil, ÃœzÃ¼ntÃ¼: Mavi, Ã–fke: KÄ±rmÄ±zÄ± vb.).
+  - JSON formatÄ±nda yapÄ±landÄ±rÄ±lmÄ±ÅŸ sonuÃ§lar dÃ¶ndÃ¼rÃ¼r.
+  - DÃ¶ngÃ¼lÃ¼ uygulama ile Ã§Ä±kÄ±ÅŸ yapÄ±lana kadar sÃ¼rekli metin analiz edebilme Ã¶zelliÄŸi bulunur.
+  - API anahtarÄ± gÃ¼venli ÅŸekilde appsettings.json dosyasÄ±ndan okunur.
 - **Gerekli NuGet Paketleri:**
   - `Microsoft.Extensions.Configuration` (v8.0.0)
   - `Microsoft.Extensions.Configuration.Json` (v8.0.0)
 
 ---
 
-Her proje kendi klasöründe, ilgili kod ve yapılandırma dosyalarını içermektedir. Yeni projeler eklendikçe bu README dosyası güncellenecektir.
+## Project14_TextSummarizerAIWeb
+- **AÃ§Ä±klama:**
+  - ASP.NET Core Razor Pages tabanlÄ± bir web uygulamasÄ±dÄ±r.
+  - Google AI Studio (Gemini 2.5-flash) API ile metinleri Ã¶zetler ve analiz eder.
+  - Modern glassmorphism tasarÄ±mÄ± ile kullanÄ±cÄ± dostu arayÃ¼z sunar.
+  - **Ana Ã–zellikler:**
+    - **Metin Ã–zetleme**: Gemini API ile akÄ±llÄ± metin Ã¶zetleme
+    - **Ã‡oklu Dosya DesteÄŸi**: TXT, PDF, DOCX dosyalarÄ±ndan metin okuma
+    - **GeÃ§miÅŸ YÃ¶netimi**: localStorage tabanlÄ± Ã¶zet geÃ§miÅŸi sistemi
+    - **Ã‡oklu Ä°ndirme**: HTML, TXT, Markdown ve DOCX formatlarÄ±nda export
+    - **Ã–zelleÅŸtirilmiÅŸ UI**: Bootstrap 5 ve glassmorphism efektli modern tasarÄ±m
+    - **Benzersiz ID Sistemi**: Her Ã¶zet iÃ§in kalÄ±cÄ± ve eÅŸsiz kimlik
+    - **YÃ¼kleme Animasyonu**: Ã–zetleme sÄ±rasÄ±nda gÃ¶rsel geri bildirim
+  - TÃ¼rkÃ§e ve Ä°ngilizce dil desteÄŸi ile Ã§ok dilli iÃ§erik analiz edebilir.
+  - Responsive tasarÄ±m ile mobil ve masaÃ¼stÃ¼ uyumludur.
+  - API anahtarÄ± gÃ¼venli ÅŸekilde appsettings.json dosyasÄ±ndan okunur.
+- **Gerekli NuGet Paketleri:**
+  - `DocumentFormat.OpenXml` (v3.2.0) - DOCX dosya iÅŸleme
+  - `iTextSharp` (v5.5.13.4) - PDF dosya okuma
+  - `System.Text.Json` (v8.0.6) - JSON iÅŸleme
+
+---
+
+Her proje kendi klasÃ¶rÃ¼nde, ilgili kod ve yapÄ±landÄ±rma dosyalarÄ±nÄ± iÃ§ermektedir. Yeni projeler eklendikÃ§e bu README dosyasÄ± gÃ¼ncellenecektir.

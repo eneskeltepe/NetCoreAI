@@ -1,0 +1,583 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "AI Text Summarizer";
+}
+
+<div class="container-fluid px-4">
+    <!-- Hero Section -->
+    <div class="row justify-content-center">
+        <div class="col-12 text-center mb-5">
+            <h1 class="hero-title fade-in-up">
+                <i class="fas fa-brain me-3"></i>AI Text Summarizer
+            </h1>
+            <p class="hero-subtitle fade-in-up">
+                Metinlerinizi yapay zeka ile profesyonel şekilde özetleyin
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            
+            <!-- Input Form Glass Card -->
+            <div class="glass-container mb-5 fade-in-up">
+                <form method="post" enctype="multipart/form-data" asp-page-handler="Summarize" id="summaryForm" novalidate>
+                    <div class="card-header-glass">
+                        <h5 class="mb-0">
+                            <i class="fas fa-edit me-2"></i>Metin Girişi
+                        </h5>
+                    </div>
+                    <div class="card-body-glass">
+                        <!-- Validation Summary -->
+                        <div asp-validation-summary="All" class="alert alert-glass d-none" id="validationSummary"></div>
+
+                        <!-- File Upload Section -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label" for="fileInput">
+                                    <i class="fas fa-cloud-upload-alt me-2"></i>Dosya Yükle
+                                </label>
+                                <input type="file" class="form-control" asp-for="SummaryRequest.UploadedFile" 
+                                       accept=".txt,.pdf,.docx" id="fileInput" 
+                                       aria-describedby="fileHelp" />
+                                <div class="form-text mt-2" id="fileHelp">
+                                    <i class="fas fa-info-circle me-1"></i>TXT, PDF, DOCX dosyaları desteklenir (Maksimum 10MB)
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="languageSelect">
+                                    <i class="fas fa-globe me-2"></i>Dil Seçimi
+                                </label>
+                                <select class="form-select" asp-for="SummaryRequest.Language" id="languageSelect"
+                                        style="color: white; background: rgba(255, 255, 255, 0.15);"
+                                        aria-label="Özet dili seçimi">
+                                    <option value="tr" style="background: rgba(30, 30, 50, 0.95); color: white;">Türkçe</option>
+                                    <option value="en" style="background: rgba(30, 30, 50, 0.95); color: white;">English</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="text-center my-4">
+                            <span class="text-muted">
+                                <i class="fas fa-arrows-alt-h me-2"></i>veya
+                            </span>
+                        </div>
+
+                        <!-- Text Input with Character Counter -->
+                        <div class="mb-4 position-relative">
+                            <label class="form-label" for="textInput">
+                                <i class="fas fa-keyboard me-2"></i>Manuel Metin Girişi
+                            </label>
+                            <textarea class="form-control" asp-for="SummaryRequest.Text" 
+                                      rows="8" placeholder="Özetlemek istediğiniz metni buraya yazın..." 
+                                      id="textInput" maxlength="100000"
+                                      aria-describedby="charCounter textHelp" required></textarea>
+                            
+                            <!-- Character Counter -->
+                            <div class="d-flex justify-content-between mt-2">
+                                <small class="form-text text-muted" id="textHelp">
+                                    <i class="fas fa-info-circle me-1"></i>Minimum 50 karakter gereklidir
+                                </small>
+                                <small class="form-text" id="charCounter">
+                                    <span id="currentLength">0</span> / <span id="maxLength">100,000</span> karakter
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- Summary Options -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label class="form-label">
+                                    <i class="fas fa-cogs me-2"></i>Özet Türleri
+                                    <small class="text-muted">(En az bir tür seçmelisiniz)</small>
+                                </label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input summary-option" type="checkbox" 
+                                                   asp-for="SummaryRequest.EnableShort" checked id="enableShort">
+                                            <label class="form-check-label" for="enableShort">
+                                                <i class="fas fa-compress-alt me-2 text-info"></i>Kısa Özet
+                                                <small class="d-block text-muted">1-2 cümle</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input summary-option" type="checkbox" 
+                                                   asp-for="SummaryRequest.EnableMedium" checked id="enableMedium">
+                                            <label class="form-check-label" for="enableMedium">
+                                                <i class="fas fa-align-center me-2 text-warning"></i>Orta Özet
+                                                <small class="d-block text-muted">3-5 cümle</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input summary-option" type="checkbox" 
+                                                   asp-for="SummaryRequest.EnableDetailed" checked id="enableDetailed">
+                                            <label class="form-check-label" for="enableDetailed">
+                                                <i class="fas fa-expand-alt me-2 text-success"></i>Detaylı Özet
+                                                <small class="d-block text-muted">Ayrıntılı</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-glass btn-lg px-5" id="submitBtn" disabled>
+                                <span id="btnContent">
+                                    <i class="fas fa-magic me-2"></i>
+                                    <span id="btnText">Özet Oluştur</span>
+                                </span>
+                                <div class="d-none" id="loadingSpinner">
+                                    <i class="fas fa-spinner fa-spin me-2"></i>
+                                    <span>İşleniyor...</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            @if (Model.SummaryResult != null)
+            {
+                <!-- Results Section -->
+                <div class="fade-in-up" id="currentResult">
+                    @if (Model.SummaryResult.IsSuccess)
+                    {
+                        <!-- Title Section -->
+                        <div class="glass-container mb-4">
+                            <div class="card-header-glass">
+                                <h4 class="mb-0 text-center">
+                                    <i class="fas fa-star me-2"></i>@Model.SummaryResult.Title
+                                    <small class="text-muted ms-3" style="font-size: 0.7em;">(ID: @Model.SummaryResult.SequentialId)</small>
+                                </h4>
+                            </div>
+                        </div>
+
+                        <!-- Summary Cards -->
+                        <div class="row mb-4">
+                            @if (!string.IsNullOrEmpty(Model.SummaryResult.ShortSummary))
+                            {
+                                <div class="col-lg-4 mb-4">
+                                    <div class="summary-card h-100">
+                                        <div class="card-header-glass">
+                                            <h6 class="mb-0">
+                                                <i class="fas fa-compress-alt me-2 text-info"></i>Kısa Özet
+                                                <button class="btn btn-sm btn-outline-light ms-2 copy-btn" 
+                                                        data-text="@Model.SummaryResult.ShortSummary" 
+                                                        title="Kopyala">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </h6>
+                                        </div>
+                                        <div class="card-body-glass">
+                                            <p class="mb-0">@Model.SummaryResult.ShortSummary</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.SummaryResult.MediumSummary))
+                            {
+                                <div class="col-lg-4 mb-4">
+                                    <div class="summary-card h-100">
+                                        <div class="card-header-glass">
+                                            <h6 class="mb-0">
+                                                <i class="fas fa-align-center me-2 text-warning"></i>Orta Özet
+                                                <button class="btn btn-sm btn-outline-light ms-2 copy-btn" 
+                                                        data-text="@Model.SummaryResult.MediumSummary"
+                                                        title="Kopyala">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </h6>
+                                        </div>
+                                        <div class="card-body-glass">
+                                            <p class="mb-0">@Model.SummaryResult.MediumSummary</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.SummaryResult.DetailedSummary))
+                            {
+                                <div class="col-lg-4 mb-4">
+                                    <div class="summary-card h-100">
+                                        <div class="card-header-glass">
+                                            <h6 class="mb-0">
+                                                <i class="fas fa-expand-alt me-2 text-success"></i>Detaylı Özet
+                                                <button class="btn btn-sm btn-outline-light ms-2 copy-btn" 
+                                                        data-text="@Model.SummaryResult.DetailedSummary"
+                                                        title="Kopyala">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </h6>
+                                        </div>
+                                        <div class="card-body-glass">
+                                            <p class="mb-0">@Model.SummaryResult.DetailedSummary</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <!-- Error Alert -->
+                        <div class="alert alert-glass d-flex align-items-center" role="alert">
+                            <i class="fas fa-exclamation-triangle me-3 fs-4"></i>
+                            <div>
+                                <h6 class="mb-1">Hata Oluştu</h6>
+                                <p class="mb-0">@Model.SummaryResult.ErrorMessage</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            <!-- History Section -->
+            <div class="glass-container">
+                <div class="card-header-glass d-flex justify-content-between align-items-center">
+                    <h6 class="mb-0">
+                        <i class="fas fa-history me-2"></i>Özet Geçmişi (<span id="historyCount">0</span>)
+                    </h6>
+                    <button class="btn btn-outline-light btn-sm" onclick="clearAllHistory()">
+                        <i class="fas fa-trash me-2"></i>Tümünü Temizle
+                    </button>
+                </div>
+                <div class="card-body-glass">
+                    <div id="historyContainer">
+                        <div class="text-center text-muted" id="emptyHistoryMessage">
+                            <i class="fas fa-history fs-1 mb-3 opacity-50"></i>
+                            <p>Henüz özet geçmişi bulunmuyor.<br>İlk özetinizi oluşturun ve geçmişe kaydedin!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden form for exports -->
+            <form id="exportForm" method="post" asp-page-handler="Export" style="display: none;">
+                <input type="hidden" name="format" id="hiddenExportFormat" />
+                <input type="hidden" name="resultJson" id="exportResultJson" />
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Constants
+        const MAX_LENGTH = 100000;
+        const MIN_LENGTH = 50;
+        const STORAGE_KEY = 'ai_summarizer_history';
+        const ID_COUNTER_KEY = 'ai_summarizer_id_counter';
+        const MAX_HISTORY_ITEMS = 100;
+        
+        // Elements
+        const form = document.getElementById('summaryForm');
+        const textInput = document.getElementById('textInput');
+        const fileInput = document.getElementById('fileInput');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnContent = document.getElementById('btnContent');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const currentLengthSpan = document.getElementById('currentLength');
+        const charCounter = document.getElementById('charCounter');
+        const summaryOptions = document.querySelectorAll('.summary-option');
+
+        // Current summary result (if available)
+        let currentSummary = @Html.Raw(Model.SummaryResult != null ? System.Text.Json.JsonSerializer.Serialize(Model.SummaryResult) : "null");
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force update maxLength display to prevent cache issues
+            document.getElementById('maxLength').textContent = '100,000';
+            
+            // Initialize ID counter system
+            initializeIdCounter();
+            
+            updateCharacterCounter();
+            validateForm();
+            initializeCopyButtons();
+            loadAndDisplayHistory();
+        });
+
+        // ID Management Functions
+        function getNextSequentialId() {
+            let currentCounter = parseInt(localStorage.getItem(ID_COUNTER_KEY)) || 0;
+            currentCounter++;
+            localStorage.setItem(ID_COUNTER_KEY, currentCounter.toString());
+            return currentCounter;
+        }
+
+        function initializeIdCounter() {
+            // Only initialize if counter doesn't exist
+            if (!localStorage.getItem(ID_COUNTER_KEY)) {
+                const history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+                const maxId = history.length > 0 ? Math.max(...history.map(item => item.SequentialId || 0)) : 0;
+                localStorage.setItem(ID_COUNTER_KEY, maxId.toString());
+            }
+        }
+
+        // Character Counter
+        textInput.addEventListener('input', function() {
+            updateCharacterCounter();
+            validateForm();
+        });
+
+        function updateCharacterCounter() {
+            const length = textInput.value.length;
+            currentLengthSpan.textContent = length.toLocaleString('tr-TR');
+            
+            // Color coding
+            if (length < MIN_LENGTH) {
+                charCounter.className = 'form-text text-muted';
+            } else if (length > MAX_LENGTH * 0.9) {
+                charCounter.className = 'form-text text-warning';
+            } else {
+                charCounter.className = 'form-text text-success';
+            }
+        }
+
+        // Form Validation
+        function validateForm() {
+            const textLength = textInput.value.trim().length;
+            const hasFile = fileInput.files.length > 0;
+            const hasText = textLength >= MIN_LENGTH;
+            const hasValidInput = hasText || hasFile;
+            const hasSelectedOption = Array.from(summaryOptions).some(opt => opt.checked);
+            
+            submitBtn.disabled = !(hasValidInput && hasSelectedOption);
+        }
+
+        // File Input Handler
+        fileInput.addEventListener('change', function() {
+            validateForm();
+            if (this.files.length > 0) {
+                const file = this.files[0];
+                textInput.placeholder = `Dosya seçildi: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                
+                // File size validation (10MB)
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('Dosya boyutu 10MB\'tan büyük olamaz!');
+                    this.value = '';
+                    validateForm();
+                    return;
+                }
+            } else {
+                textInput.placeholder = 'Özetlemek istediğiniz metni buraya yazın...';
+            }
+        });
+
+        // Summary Options Validation
+        summaryOptions.forEach(option => {
+            option.addEventListener('change', validateForm);
+        });
+
+        // Form Submit Handler
+        form.addEventListener('submit', function(e) {
+            if (submitBtn.disabled) {
+                e.preventDefault();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            btnContent.classList.add('d-none');
+            loadingSpinner.classList.remove('d-none');
+        });
+
+        // Copy to Clipboard
+        function initializeCopyButtons() {
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const text = this.getAttribute('data-text');
+                    navigator.clipboard.writeText(text).then(() => {
+                        const icon = this.querySelector('i');
+                        const originalClass = icon.className;
+                        icon.className = 'fas fa-check text-success';
+                        
+                        setTimeout(() => {
+                            icon.className = originalClass;
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Kopyalama hatası:', err);
+                        alert('Kopyalama başarısız oldu');
+                    });
+                });
+            });
+        }
+
+        // Export Functions
+        function exportSummary(summaryData, format) {
+            try {
+                document.getElementById('hiddenExportFormat').value = format;
+                document.getElementById('exportResultJson').value = JSON.stringify(summaryData);
+                document.getElementById('exportForm').submit();
+            } catch (error) {
+                console.error('Export error:', error);
+                alert('Export işlemi başarısız oldu: ' + error.message);
+            }
+        }
+
+        // Local Storage Functions  
+        function loadAndDisplayHistory() {
+            const history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            const historyContainer = document.getElementById('historyContainer');
+            const historyCount = document.getElementById('historyCount');
+            
+            // Sort by creation date (newest first) - DO NOT reassign IDs
+            history.sort((a, b) => new Date(b.CreatedAt) - new Date(a.CreatedAt));
+            
+            historyCount.textContent = history.length;
+
+            // Mevcut içeriği tamamen temizle
+            historyContainer.innerHTML = '';
+
+            if (history.length === 0) {
+                historyContainer.innerHTML = `
+                    <div class="text-center text-muted" id="emptyHistoryMessage">
+                        <i class="fas fa-history fs-1 mb-3 opacity-50"></i>
+                        <p>Henüz özet geçmişi bulunmuyor.<br>İlk özetinizi oluşturun ve geçmişe kaydedin!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            historyContainer.innerHTML = history.map((item, index) => `
+                <div class="history-item mb-3 p-3" data-history-index="${index}" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; transition: all 0.3s ease;">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="flex-grow-1">
+                            <h6 class="history-title mb-1 text-truncate">
+                                ${item.Title} 
+                                <small class="text-muted" style="font-size: 0.8em;">(ID: ${item.SequentialId})</small>
+                            </h6>
+                            <small class="text-muted">${new Date(item.CreatedAt).toLocaleDateString('tr-TR', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}</small>
+                        </div>
+                        <div class="d-flex justify-content-end align-items-center gap-2">
+                            <div class="dropup">
+                                <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-download me-1"></i>Export
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="#" onclick="exportHistoryItem(${index}, 'html')">
+                                        <i class="fas fa-file-code me-2"></i>HTML
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="exportHistoryItem(${index}, 'txt')">
+                                        <i class="fas fa-file-alt me-2"></i>TXT
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="exportHistoryItem(${index}, 'md')">
+                                        <i class="fab fa-markdown me-2"></i>Markdown
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="exportHistoryItem(${index}, 'docx')">
+                                        <i class="fas fa-file-word me-2"></i>Word
+                                    </a></li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-outline-danger btn-sm" onclick="removeHistoryItem(${index})" title="Sil">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="history-preview mb-2 small text-muted">${item.OriginalTextPreview}</p>
+                    <div class="history-stats d-flex gap-3">
+                        <small><i class="fas fa-font me-1"></i>${item.OriginalCharCount?.toLocaleString('tr-TR') || 0} karakter</small>
+                        <small><i class="fas fa-spell-check me-1"></i>${item.OriginalWordCount?.toLocaleString('tr-TR') || 0} kelime</small>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function exportHistoryItem(index, format) {
+            const history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            const item = history[index];
+            
+            if (!item) {
+                alert('Özet bulunamadı!');
+                return;
+            }
+
+            exportSummary(item, format);
+        }
+
+        function removeHistoryItem(index) {
+            if (!confirm('Bu özeti geçmişten silmek istediğinizden emin misiniz?')) return;
+            
+            // Önce animasyon göster
+            const removedElement = document.querySelector(`[data-history-index="${index}"]`);
+            if (removedElement) {
+                removedElement.style.opacity = '0.5';
+                removedElement.style.transform = 'scale(0.95)';
+                removedElement.style.pointerEvents = 'none';
+                
+                // Animasyon tamamlandıktan sonra elementi kaldır
+                setTimeout(() => {
+                    removedElement.remove();
+                }, 300);
+            }
+            
+            // LocalStorage'dan sil - ID'leri değiştirme!
+            let history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            history.splice(index, 1);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+            
+            // 400ms sonra UI'yi tamamen yeniden yükle
+            setTimeout(() => {
+                loadAndDisplayHistory();
+            }, 400);
+        }
+
+        function clearAllHistory() {
+            if (!confirm('Tüm özet geçmişini silmek istediğinizden emin misiniz?')) return;
+            
+            localStorage.removeItem(STORAGE_KEY);
+            loadAndDisplayHistory();
+        }
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+Enter to submit
+            if (e.ctrlKey && e.key === 'Enter' && !submitBtn.disabled) {
+                form.submit();
+            }
+        });
+
+        // Auto-save current summary to history if it exists
+        if (currentSummary && currentSummary.IsSuccess) {
+            // Auto-save after 3 seconds if not already saved
+            setTimeout(() => {
+                const history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+                const exists = history.find(item => item.Id === currentSummary.Id);
+                if (!exists) {
+                    // Assign unique sequential ID using counter system
+                    currentSummary.SequentialId = getNextSequentialId();
+                    
+                    // Update the displayed ID on the page immediately
+                    const currentResultTitle = document.querySelector('#currentResult h4 small');
+                    if (currentResultTitle) {
+                        currentResultTitle.textContent = `(ID: ${currentSummary.SequentialId})`;
+                    }
+                    
+                    // Add to beginning of history (newest first)
+                    history.unshift(currentSummary);
+                    
+                    // Limit history size
+                    if (history.length > MAX_HISTORY_ITEMS) {
+                        history.splice(MAX_HISTORY_ITEMS);
+                    }
+                    
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+                    loadAndDisplayHistory();
+                }
+            }, 3000);
+        }
+    </script>
+}

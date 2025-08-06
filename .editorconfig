@@ -1,0 +1,16 @@
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{cs,razor,cshtml,json,js,css,html,md}]
+charset = utf-8
+
+[*.md]
+charset = utf-8
+trim_trailing_whitespace = false
+
+[*.{json,yml,yaml}]
+charset = utf-8

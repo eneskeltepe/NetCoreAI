@@ -1,4 +1,4 @@
-# .NET, Visual Studio ve Rider için .gitignore
+# .NET, Visual Studio ve Rider iÃ§in .gitignore
 bin/
 obj/
 .vs/
@@ -9,20 +9,23 @@ obj/
 *.log
 *.DS_Store
 
-# appsettings.json ve varyantlarý gizli tutulmalý
+# appsettings.json ve varyantlarÄ± gizli tutulmalÄ±
 appsettings.json
 appsettings.Development.json
 appsettings.Production.json
-# Sadece örnek dosya hariç
+# Sadece Ã¶rnek dosya hariÃ§
 !appsettings.example.json
 
-# Google Cloud Service Account JSON dosyalarý (GÜVENLÝK AÇIÐI!)
+# Google Cloud Service Account JSON dosyalarÄ± (GÃœVENLÄ°K AÃ‡IÄžI!)
 *-k1-*.json
 famous-modem-465613-k1-bf89e7e629b6.json
 famous-modem-465613-k1-e34190f6e788.json
 
-# Tesseract OCR proje klasörü sonuç dosyalarý
+# Tesseract OCR proje klasÃ¶rÃ¼ sonuÃ§ dosyalarÄ±
 Project07_TesseractOcrConsole/Sonuclar/
 
-# Google Vision OCR proje klasörü sonuç dosyalarý
+# Google Vision OCR proje klasÃ¶rÃ¼ sonuÃ§ dosyalarÄ±
 Project08_GoogleVisionOcrConsole/Results/
+
+# Web uygulamalarÄ± iÃ§in publish Ã§Ä±ktÄ±larÄ±
+wwwroot/lib/

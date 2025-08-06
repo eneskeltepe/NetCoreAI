@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 class Program
@@ -29,6 +29,9 @@ class Program
 
     static async Task Main(string[] args)
     {
+        // Türkçe karakterlerin doğru görünmesi için UTF-8 encoding ayarla
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        
         Console.Title = "Gemini AI Translator";
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("========================================");

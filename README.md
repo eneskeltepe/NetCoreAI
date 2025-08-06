@@ -1,4 +1,4 @@
-﻿# .NET Core AI Projeleri
+# .NET Core AI Projeleri
 
 Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içermektedir. Her proje, farklı bir AI hizmeti veya teknolojisi ile entegrasyon örneği sunmaktadır.
 
@@ -199,6 +199,29 @@ Bu repo, çeşitli .NET Core teknolojileri ile AI entegrasyonu örneklerini içe
   - `DocumentFormat.OpenXml` (v3.2.0) - DOCX dosya işleme
   - `iTextSharp` (v5.5.13.4) - PDF dosya okuma
   - `System.Text.Json` (v8.0.6) - JSON işleme
+
+---
+
+## Project15_WebScrapingConsole
+- **Açıklama:**
+  - Konsol uygulaması olarak geliştirilmiştir.
+  - Google AI Studio (Gemini 2.0-flash) API ile web sitelerini analiz eder ve içerik özetler.
+  - HtmlAgilityPack kullanarak web sayfalarından metin çıkarma (web scraping) yapar.
+  - **Ana Özellikler:**
+    - **Akıllı Web Scraping**: Başlık, meta açıklama ve ana içerik çıkarma
+    - **Gelişmiş İçerik Temizleme**: Script, style, nav, footer gibi gereksiz elementleri kaldırma
+    - **Bot Engelleme Koruması**: User-Agent başlığı ile güvenli erişim
+    - **Kapsamlı AI Analizi**: Ana konu, önemli bilgiler, hedef kitle ve özet çıkarma
+    - **Yapılandırılmış Rapor**: Kategorize edilmiş analiz sonuçları
+    - **URL Validasyonu**: Geçerli web adresi kontrolü
+    - **Sürekli Kullanım**: Döngülü uygulama ile çoklu site analizi
+  - Renkli konsol çıktıları ile kullanıcı dostu arayüz sunar.
+  - API anahtarı güvenli şekilde appsettings.json dosyasından okunur.
+  - 8000 karakter sınırı ile API optimizasyonu sağlanır.
+- **Gerekli NuGet Paketleri:**
+  - `HtmlAgilityPack` (v1.12.2) - Web scraping
+  - `Microsoft.Extensions.Configuration` (v8.0.0) - Yapılandırma yönetimi
+  - `Microsoft.Extensions.Configuration.Json` (v8.0.0) - JSON yapılandırma
 
 ---
 
